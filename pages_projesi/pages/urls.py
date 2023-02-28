@@ -10,3 +10,4 @@ urlpatterns=[
     path('csv/upload/',UploadCsvView.as_view(), name='UploadCsv'),
     path('txt/upload/',UploadTxtView.as_view(), name='UploadTxt'),
     path('xlsx/upload/',UploadXlsxView.as_view(), name='UploadXlsx')
+]
