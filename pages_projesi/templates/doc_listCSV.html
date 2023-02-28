@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+
+{% block content %}
+  <h2>Dosyalar</h2>
+  <table class="table">
+
+    <thead>
+     <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Download</th>
+      <th>Process</th>
+      <th>Delete</th>
+     </tr>
+    </thead>
+    <tbody>
+      {% for doc in docs %}
+       <tr>
+        <td>{{ doc.title }}</td>
+        <td>{{ doc.author }}</td>
+        <td>
+          <a href="{{ doc.csv.url }}" class="btn btn-primary btn-sm">
+            Csv Dosyasını Yükle
+          </a>
+        </td>
+        <td>
+          <form method="post" action="{% url 'process_csv' doc.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-sm">İşlem</button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="{% url 'delete_csv' doc.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-sm">Dosyayı Sil</button>
+          </form>
+        </td>
+       
+       </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+{% endblock content %}

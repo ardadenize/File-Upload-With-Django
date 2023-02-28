@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block content %}
+  <h2>Dosyalar</h2>
+  <table class="table">
+
+    <thead>
+     <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Download</th>
+     </tr>
+    </thead>
+    <tbody>
+      {% for doc in docs %}
+       <tr>
+        <td>{{ doc.title }}</td>
+        <td>{{ doc.author }}</td>
+        <td>
+          <a href="{{ doc.txt.url }}" class="btn btn-primary btn-sm">
+            TXT Dosyasını Yükle
+          </a>
+        </td>
+       </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+{% endblock content %}
