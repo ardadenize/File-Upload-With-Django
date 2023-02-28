@@ -108,6 +108,19 @@ def plotcsv(request, pk):
   df = df.replace(" ?", np.NaN)
  return plot(df) 
 
+def plottxt(request, pk):
+ if request.method == 'POST':
+  doc = XlsxFile.objects.get(pk=pk)
+  df = load_dataset(doc)
+  df = df.replace(" ?", np.NaN)
+ return plot(df)
+
+def plotxlsx(request, pk):
+ if request.method == 'POST':
+  doc = TxtFile.objects.get(pk=pk)
+  df = load_dataset(doc)
+  df = df.replace(" ?", np.NaN)
+ return plot(df)
 """
 
 # data ilk yuklendiginde dondurulecek cikti
