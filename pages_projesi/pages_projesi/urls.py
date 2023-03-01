@@ -16,14 +16,3 @@ urlpatterns = [
     path("csv/upload/", views.upload_csv.as_view(), name='upload_csv'),
     path("xlsx/upload/", views.upload_xlsx.as_view(), name='upload_xlsx'),
     path("txt/upload/", views.upload_txt.as_view(), name='upload_txt'),
-    path("docs/<int:pk>/", views.delete_csv, name= 'delete_csv'),
-    path("docs/<int:pk>/", views.delete_txt, name= 'delete_txt'),
-    path("docs/<int:pk>/", views.delete_xlsx, name= 'delete_xlsx'),
-
-    path("docs/process/<int:pk>/", views.plotcsv, name= 'process_csv'),
-    path('',include('pages.urls')),
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
