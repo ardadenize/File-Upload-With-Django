@@ -9,6 +9,8 @@
       <th>Title</th>
       <th>Author</th>
       <th>Download</th>
+      <th>Process</th>
+      <th>Delete</th>
      </tr>
     </thead>
     <tbody>
@@ -18,9 +20,22 @@
         <td>{{ doc.author }}</td>
         <td>
           <a href="{{ doc.xlsx.url }}" class="btn btn-primary btn-sm">
-            XLSX Dosyasını Yükle
+            Xlsx Dosyasını Yükle
           </a>
         </td>
+        <td>
+          <form method="post" action="{% url 'process_xlsx' doc.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-sm">İşlem</button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="{% url 'delete_xlsx' doc.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-sm">Dosyayı Sil</button>
+          </form>
+        </td>
+       
        </tr>
       {% endfor %}
     </tbody>
