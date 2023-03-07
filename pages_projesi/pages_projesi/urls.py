@@ -5,7 +5,6 @@ from django.conf import settings
 from pages import views
 from django.conf.urls.static import static
 
-urlpatterns = [
     path("admin/", admin.site.urls),
     #path("upload/", views.upload, name='upload'),
     
