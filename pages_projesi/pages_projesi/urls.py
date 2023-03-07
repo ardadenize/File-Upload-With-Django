@@ -10,7 +10,7 @@ urlpatterns = [
     #path("upload/", views.upload, name='upload'),
     
 
-    path("docs/csv", views.CSVdoc_list.as_view(), name='doc_listCSV'),
+   
     path("docs/xlsx", views.XLSXdoc_list.as_view(), name='doc_listXLSX'),
     path("docs/txt", views.TXTdoc_list.as_view(), name='doc_listTXT'),
     path("csv/upload/", views.upload_csv.as_view(), name='upload_csv'),
